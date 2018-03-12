@@ -38,7 +38,7 @@
     <jedis.version>2.7.3</jedis.version>
     <ehcache.version>3.4.0</ehcache.version>
     <cache-api.version>1.0.0</cache-api.version>
-    <servlet.version>2.5</servlet.version>
+    <servlet.version>3.0-alpha-1</servlet.version>
   </properties>
   <dependencies>
     <!--servlet config begin-->
