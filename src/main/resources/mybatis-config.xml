@@ -46,6 +46,5 @@
     </environments>
     <mappers>
         <mapper resource="mapper/StudentMapper.xml" />
-
     </mappers>
 </configuration>

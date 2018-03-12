@@ -45,4 +45,14 @@ public class Student implements Serializable{
     public void setClassid(Integer classid) {
         this.classid = classid;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "uid=" + uid +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", classid=" + classid +
+                '}';
+    }
 }

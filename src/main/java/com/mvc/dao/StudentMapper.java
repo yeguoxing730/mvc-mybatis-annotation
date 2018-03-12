@@ -1,11 +1,10 @@
 package com.mvc.dao;
 
 import com.mvc.entity.Student;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public interface StudentMapper {
     int deleteByPrimaryKey(int uid);
 
