@@ -13,11 +13,12 @@ import java.util.List;
 @RequestMapping("/api/Student")
 public class StudentController {
     @Autowired
-    private IStudentService service;
+    private IStudentService studentService;
 
     @GetMapping()
     public String Get() {
-        List<Student> students = service.selectByCondition(new Student());
+        System.out.println(studentService.selectByPrimaryKey(2));
+        List<Student> students = studentService.selectByCondition(new Student());
         String jsonResult = com.alibaba.fastjson.JSON.toJSONString(students);
         return jsonResult;
     }

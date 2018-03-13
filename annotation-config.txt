@@ -1,6 +1,7 @@
 AbstractDispatcherServletInitializer
 
 
+
 在Spring-web项目中有类 SpringServletContainerInitializer，它实现了Servlet3.0的ServletContainerInitializer接口，
 且优先级会高于xml中配置的listener。在SpringServletContainerInitializer中有注解@HandlesTypes(WebApplicationInitializer.class)，
 具体如下：
@@ -9,5 +10,8 @@ AbstractDispatcherServletInitializer
 onStartup方法执行时，会遍历该set，并使用newInstance()方式进行实例化，实例化后依据@Order注解进行排序，
 最后在依次调用onStartup(ServletContext)方法，完成初始化。
 
-
+AbstractAnnotationConfigDispatcherServletInitializer 是WebApplicationInitializer的实现类
 spring配置分为 xml/java/annotaion
+
+
+http://websystique.com/springmvc/spring-4-mvc-helloworld-tutorial-annotation-javaconfig-full-example/

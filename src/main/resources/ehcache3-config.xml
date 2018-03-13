@@ -1,0 +1,26 @@
+<config
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
+    <persistence directory="D:/data/mvc-mybatis-annotation/ehcache3"/>
+    <cache-template name="objectDefault">
+        <!--缓存key的类型,不设置默认为Object-->
+        <!--<key-type>java.lang.String</key-type>-->
+        <!--值类型,不设置默认为Object,serializer设置序列化工具类,不设置的话,object无法序列化,这里使用的是java的序列化工具,即需要实现序列化接口,不然为空-->
+        <!--<value-type serializer="org.ehcache.impl.serialization.PlainJavaSerializer">java.lang.Object</value-type>-->
+        <!--缓存过期时间,可以是tti(空闲保留时间),ttl(存活时间),None(不过期),默认不过期-->
+        <!-- <expiry>
+             <tti unit="minutes">20</tti>
+         </expiry>-->
+        <!--缓存保存类型-->
+        <resources>
+            <!--在JVM中保存缓存,可以按照实体个数,总大小设置-->
+            <heap unit="entries">20000</heap>
+            <offheap unit="MB">500</offheap>
+            <!--缓存到磁盘的设置,可以是kb,Mb,GB等单位设置大小-->
+            <disk unit="GB" persistent="true">3</disk>
+        </resources>
+    </cache-template>
+    <!--一个缓存实例,基于模板 缓存redis数据到本地-->
+    <cache alias="localCacheService" uses-template="objectDefault"></cache>
+</config>

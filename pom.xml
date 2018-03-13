@@ -30,21 +30,24 @@
     <commons-codec.version>1.10</commons-codec.version>
     <mybatis.version>3.3.0</mybatis.version>
     <log4j-core.version>2.6.2</log4j-core.version>
+    <log4j-web.version>2.9.1</log4j-web.version>
     <annotation.version>RELEASE</annotation.version>
     <mybatis-spring.version>1.2.3</mybatis-spring.version>
     <mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
-    <slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>
+    <!--<slf4j-log4j12.version>1.7.25</slf4j-log4j12.version>-->
     <spring-data-redis.version>1.6.2.RELEASE</spring-data-redis.version>
     <jedis.version>2.7.3</jedis.version>
     <ehcache.version>3.4.0</ehcache.version>
     <cache-api.version>1.0.0</cache-api.version>
-    <servlet.version>3.0-alpha-1</servlet.version>
+    <servlet.version>3.1.0</servlet.version>
+    <log4j.version>1.2.17</log4j.version>
+    <log4j-api.version>2.10.0</log4j-api.version>
   </properties>
   <dependencies>
     <!--servlet config begin-->
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
+      <artifactId>javax.servlet-api</artifactId>
       <version>${servlet.version}</version>
     </dependency>
     <!--Unit Test - 单元测试-->
@@ -101,6 +104,12 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <version>${spring.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>servlet-api</artifactId>
+          <groupId>javax.servlet</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -245,8 +254,24 @@
     <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>${log4j-core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+      <version>${log4j-web.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
     </dependency>
     <dependency>
       <groupId>org.jetbrains</groupId>
@@ -287,11 +312,11 @@
 
     <!-- change slf4j for log4j -->
     <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${slf4j-log4j12.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.slf4j</groupId>-->
+      <!--<artifactId>slf4j-log4j12</artifactId>-->
+      <!--<version>${slf4j-log4j12.version}</version>-->
+    <!--</dependency>-->
 
 
     <!-- redis cache related.....start -->

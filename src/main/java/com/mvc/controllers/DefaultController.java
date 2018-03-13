@@ -22,4 +22,10 @@ public class DefaultController extends BaseController {
     public Return get( ) {
         return processRequest("2018-03-09" ,0);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/error", method = RequestMethod.POST)
+    public Return getException( ) throws Exception {
+       throw new Exception("test");
+    }
 }

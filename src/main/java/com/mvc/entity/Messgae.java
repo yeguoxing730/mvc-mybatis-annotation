@@ -1,6 +1,8 @@
 package com.mvc.entity;
 
-public class Messgae {
+import java.io.Serializable;
+
+public class Messgae implements Serializable {
     private Integer id;
 
     private String name;
