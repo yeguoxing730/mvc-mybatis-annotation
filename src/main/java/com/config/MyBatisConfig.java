@@ -1,6 +1,8 @@
 package com.config;
 
+import com.mvc.dbinterceptor.SqlInterceptor;
 import org.apache.ibatis.logging.stdout.StdOutImpl;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.AutoMappingBehavior;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.LocalCacheScope;
@@ -37,6 +39,7 @@ public class MyBatisConfig {
         sessionFactory.setDataSource(dataSource);
         PathMatchingResourcePatternResolver pathM3R = new PathMatchingResourcePatternResolver();
         sessionFactory.setConfigLocation(pathM3R.getResource("mybatis-config.xml"));
+        sessionFactory.setPlugins(new Interceptor[]{new SqlInterceptor()} );
         return sessionFactory;
     }
     @Bean
